@@ -33,4 +33,11 @@ gene_summary %>% select(Hugo_Symbol,MutatedSamples) %>%
 arrange(desc(MutatedSamples)) %>% head() %>% 
 
 #top10 genes
-gene_summary %>% head(10)
+gene_summary <- getGeneSummary(maf)
+top10 <- gene_summary[1:10 , ]
+top10
+
+#Saving results
+getwd()
+setwd("/Users/khan/Desktop/Cancer_mutation_explorer")
+write_csv(top10 , file = "results/top10_genes.csv")
