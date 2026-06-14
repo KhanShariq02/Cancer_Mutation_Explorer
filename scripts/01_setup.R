@@ -5,4 +5,6 @@ BiocManager::install("maftools")
 library(tidyverse)
 library(maftools)
 
-cat("Cancer Mutation Explorer started!\n")
+cat("Cancer Mutation Explorer Started! \n")
+
+sessionInfo()

@@ -1,0 +1,7 @@
+Patient,Gene,MutationType
+P1,TP53,Nonsense
+P1,PIK3CA,Missense
+P2,TP53,Missense
+P3,TP53,Frameshift
+P4,BRCA1,Frameshift
+P5,PIK3CA,Missense
