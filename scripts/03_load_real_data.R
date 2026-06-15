@@ -41,3 +41,26 @@ top10
 getwd()
 setwd("/Users/khan/Desktop/Cancer_mutation_explorer")
 write_csv(top10 , file = "results/top10_genes.csv")
+
+#plot
+library(ggplot2)
+packageVersion("ggplot2")
+top10 %>% ggplot(aes(x=reorder(Hugo_Symbol,MutatedSamples),
+    y= MutatedSamples)) + geom_col() + coord_flip()
+
+#mutation burden on samples with highest burden and lowest burden.
+sample_summary <- getSampleSummary(maf)
+sample_summary %>% head()
+sample_summary %>% 
+    filter(total == max(total) | total==min(total))
+
+#plotting mutation burden
+sample_summary %>% ggplot(aes(x=reorder(Tumor_Sample_Barcode,total),
+    y=total)) + geom_col() + coord_flip()
+
+
+
+
+
+
+
