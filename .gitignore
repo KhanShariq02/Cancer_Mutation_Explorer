@@ -1,0 +1,9 @@
+#macos
+.DS_Store
+
+#Raw data
+data/*.tar.gz
+
+#Extracted TCGA datasets
+data/brca_tcga_pan_can_atlas_2018/
+

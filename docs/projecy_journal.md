@@ -7,3 +7,6 @@ TCGA-BRCA
 - Project setup completed  
 - Mutation biology studied  
 - Maftools explored
+## Analysis
+- The TCGA Breast Cancer mutation dataset contained 126,252 mutation records across 111 annotation fields.  
+- 
