@@ -1,5 +1,8 @@
 #macos
 .DS_Store
+.Rhistory
+.RData
+.Ruserdata
 
 #Raw data
 data/*.tar.gz
