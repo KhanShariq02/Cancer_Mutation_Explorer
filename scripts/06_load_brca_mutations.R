@@ -69,3 +69,26 @@ ggplot(top_samples,
                 y= "Number of Mutations")
 ggsave("figures/top20_mutation_burden.png", width = 8, height = 6)
 
+# 4) Calculating Gene Mutation Frequencies Across Patients 
+# i.e. “In how many patients is each gene mutated?” -> This removes duplicate mutations from the same patient.
+gene_patient_freq <- mutations %>% 
+                        distinct(Tumor_Sample_Barcode,Hugo_Symbol) %>%  #finds uniqueness between patient and gene
+                        count(Hugo_Symbol, sort = TRUE) 
+head(gene_patient_freq,20)
+
+#save
+write_csv(gene_patient_freq, file = "/Users/khan/Desktop/Cancer_mutation_explorer/results/gene_patient_frequency.csv")
+
+#plot
+top20_patients <- gene_patient_freq %>% slice_head(n=20)
+
+ggplot(top20_patients , 
+        aes(x=reorder(Hugo_Symbol,n),
+        y=n)) + 
+        geom_col() +
+        coord_flip() +
+        labs(title = "Top 20 Genes by Patient Frequency",
+        x= "Gene" , y="Number of Patients")
+
+ggsave("/Users/khan/Desktop/Cancer_mutation_explorer/figures/top20_patient_frequency.png",
+        width = 8, height = 6)
